@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EindExamenMaui.Views.EigenaarOverzichtPage"
+             xmlns:viewmodel="clr-namespace:EindExamenMaui.ViewModels"
+             x:DataType="viewmodel:EigenaarOverzichtViewModel"
+             Title="{Binding Title}">
+
+    <Grid RowDefinitions="Auto,*">
+        <HorizontalStackLayout Grid.Row="0" Margin="5">
+            <Label Text="Eigenaar" VerticalOptions="Center" WidthRequest="100"/>
+            <Entry Text="{Binding ZoektermEigenaar}" Placeholder="Typ hier de naam van een persoon"/>
+            <Button Text="Zoeken" Command="{Binding ZoekEigenaarCommand}" WidthRequest="100" Margin="5,0"/>
+        </HorizontalStackLayout>
+        <CollectionView Margin="5" Grid.Row="1">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

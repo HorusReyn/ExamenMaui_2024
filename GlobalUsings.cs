@@ -1,0 +1,12 @@
+﻿global using CommunityToolkit.Mvvm.ComponentModel;
+global using CommunityToolkit.Mvvm.Input;
+global using Dapper;
+global using EindExamenMaui.Data.IRepository;
+global using EindExamenMaui.Data.Repository;
+global using EindExamenMaui.Models;
+global using EindExamenMaui.ViewModels;
+global using EindExamenMaui.Views;
+global using Microsoft.Data.SqlClient;
+global using System.Collections.ObjectModel;
+global using System.Data;
+global using System.Text.Json;

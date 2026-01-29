@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EindExamenMaui.Views.DierPage"
+             xmlns:viewmodel="clr-namespace:EindExamenMaui.ViewModels"
+             xmlns:models="clr-namespace:EindExamenMaui.Models"
+             x:DataType="viewmodel:DierViewModel"
+             Title="{Binding Title}">
+    
+    <Grid ColumnDefinitions="*,*" 
+          RowDefinitions="Auto,*,Auto">
+        <CollectionView  Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" EmptyView="No items to display"  SelectionMode="Single" ItemSource="{Binding Dieren}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Dier">
+                    <Label Text="{Binding Naam}"/>
+                    <Label Text="{Binding SoortId}"/>
+                    <Label Text="{Binding Geslacht}"/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label Text="{Binding ActieLabel}" FontSize="Medium" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" HeightRequest="50"/>
+
+        <VerticalStackLayout Grid.Row="1" Grid.Column="1">
+            <HorizontalStackLayout Margin="5">
+                <Label Text="Naam" VerticalOptions="Center" WidthRequest="100"/>
+                <Entry Placeholder="Typ hier de naam van het dier" Text="{Binding Naam}" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Margin="5">
+                <Label Text="Soort" VerticalOptions="Center" WidthRequest="100"/>
+                <Picker selectedIndex ="{Binding SoortId}" ItemSource ="{Binding Soorten}"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Margin="5">
+                <Label Text="Geslacht" VerticalOptions="Center" WidthRequest="100"/>
+                <Entry Placeholder="M of V" Text="{Binding Geslacht}"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+        <Grid RowDefinitions="*,*" ColumnDefinitions="*,*,*" Grid.Row="2" Grid.Column="1">
+            <Button Text="Toevoegen" Command="{Binding ToevoegenCommand}" Grid.Row="0" Grid.Column="0" Margin="5"/>
+            <Button Text="Wijzigen" Command="{Binding WijzigenCommand}" Grid.Row="0" Grid.Column="1" Margin="5"/>
+            <Button Text="Verwijderen" Command="{Binding VerwijderenCommand}" Grid.Row="0" Grid.Column="2" Margin="5"/>
+            <Button Text="Deselecteren" Command="{Binding DeselecterenCommand}" Grid.Row="1" Grid.Column="0" Margin="5"/>
+        </Grid>
+    </Grid>
+</ContentPage>

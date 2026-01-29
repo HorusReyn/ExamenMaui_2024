@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EindExamenMaui.Data.IRepository
+{
+    public interface IPersoonRepository
+    {
+        public ICollection<Persoon> OphalenPersonen();
+        public ICollection<Persoon> OphalenPersonenViaTerm(string term);
+    }
+}
